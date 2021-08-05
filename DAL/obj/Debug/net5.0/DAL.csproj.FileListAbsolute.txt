@@ -1,0 +1,12 @@
+D:\ExampleAPIForTesting\DAL\bin\Debug\net5.0\DAL.deps.json
+D:\ExampleAPIForTesting\DAL\bin\Debug\net5.0\DAL.dll
+D:\ExampleAPIForTesting\DAL\bin\Debug\net5.0\ref\DAL.dll
+D:\ExampleAPIForTesting\DAL\bin\Debug\net5.0\DAL.pdb
+D:\ExampleAPIForTesting\DAL\obj\Debug\net5.0\DAL.csprojAssemblyReference.cache
+D:\ExampleAPIForTesting\DAL\obj\Debug\net5.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\ExampleAPIForTesting\DAL\obj\Debug\net5.0\DAL.AssemblyInfoInputs.cache
+D:\ExampleAPIForTesting\DAL\obj\Debug\net5.0\DAL.AssemblyInfo.cs
+D:\ExampleAPIForTesting\DAL\obj\Debug\net5.0\DAL.csproj.CoreCompileInputs.cache
+D:\ExampleAPIForTesting\DAL\obj\Debug\net5.0\DAL.dll
+D:\ExampleAPIForTesting\DAL\obj\Debug\net5.0\ref\DAL.dll
+D:\ExampleAPIForTesting\DAL\obj\Debug\net5.0\DAL.pdb

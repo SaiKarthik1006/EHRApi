@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CQMsolutionModelStoreContainer" CdmEntityContainer="CQMsolutionEntities">
+    <EntitySetMapping Name="User_Login">
+      <EntityTypeMapping TypeName="CQMsolutionModel.User_Login">
+        <MappingFragment StoreEntitySet="User_Login">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Get_Main_DetailReport" FunctionName="CQMsolutionModel.Store.Sp_Get_Main_DetailReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CQMsolutionModel.Sp_Get_Main_DetailReport_Result">
+          <ScalarProperty Name="lngID" ColumnName="lngID" />
+          <ScalarProperty Name="dtmDateSuccess" ColumnName="dtmDateSuccess" />
+          <ScalarProperty Name="vchMeasurePeriodStart" ColumnName="vchMeasurePeriodStart" />
+          <ScalarProperty Name="vchMeasurePeriodStop" ColumnName="vchMeasurePeriodStop" />
+          <ScalarProperty Name="MeasureVersion" ColumnName="MeasureVersion" />
+          <ScalarProperty Name="MeasureGuid" ColumnName="MeasureGuid" />
+          <ScalarProperty Name="NqfMeasureIdentifier" ColumnName="NqfMeasureIdentifier" />
+          <ScalarProperty Name="MeasureTitle" ColumnName="MeasureTitle" />
+          <ScalarProperty Name="IPPMale" ColumnName="IPPMale" />
+          <ScalarProperty Name="IPPFemale" ColumnName="IPPFemale" />
+          <ScalarProperty Name="IPPNOTHispanic" ColumnName="IPPNOTHispanic" />
+          <ScalarProperty Name="IPPhispanic" ColumnName="IPPhispanic" />
+          <ScalarProperty Name="IPPPayOther" ColumnName="IPPPayOther" />
+          <ScalarProperty Name="DENMale" ColumnName="DENMale" />
+          <ScalarProperty Name="DENFeMale" ColumnName="DENFeMale" />
+          <ScalarProperty Name="DENNOTHispanic" ColumnName="DENNOTHispanic" />
+          <ScalarProperty Name="DENHispanic" ColumnName="DENHispanic" />
+          <ScalarProperty Name="DENPayOther" ColumnName="DENPayOther" />
+          <ScalarProperty Name="DENexcepMale" ColumnName="DENexcepMale" />
+          <ScalarProperty Name="DENexcepFeMale" ColumnName="DENexcepFeMale" />
+          <ScalarProperty Name="DENexcepNOTHispanic" ColumnName="DENexcepNOTHispanic" />
+          <ScalarProperty Name="DENexcepHispanic" ColumnName="DENexcepHispanic" />
+          <ScalarProperty Name="DENexcepPayOther" ColumnName="DENexcepPayOther" />
+          <ScalarProperty Name="DenexcluMale" ColumnName="DenexcluMale" />
+          <ScalarProperty Name="DenexcluFeMale" ColumnName="DenexcluFeMale" />
+          <ScalarProperty Name="DenexcluNOTHispanic" ColumnName="DenexcluNOTHispanic" />
+          <ScalarProperty Name="DenexcluHispanic" ColumnName="DenexcluHispanic" />
+          <ScalarProperty Name="DenexcluPayOther" ColumnName="DenexcluPayOther" />
+          <ScalarProperty Name="NumMale" ColumnName="NumMale" />
+          <ScalarProperty Name="NumFeMale" ColumnName="NumFeMale" />
+          <ScalarProperty Name="NumNOTHispanic" ColumnName="NumNOTHispanic" />
+          <ScalarProperty Name="NumHispanic" ColumnName="NumHispanic" />
+          <ScalarProperty Name="NumPayOther" ColumnName="NumPayOther" />
+          <ScalarProperty Name="MeasureCMSNumber" ColumnName="MeasureCMSNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Get_Practice_BasicReport_Info" FunctionName="CQMsolutionModel.Store.Sp_Get_Practice_BasicReport_Info">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CQMsolutionModel.Sp_Get_Practice_BasicReport_Info_Result">
+          <ScalarProperty Name="lngID" ColumnName="lngID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="dtmDateCreated" ColumnName="dtmDateCreated" />
+          <ScalarProperty Name="vchMeasurePeriodStart" ColumnName="vchMeasurePeriodStart" />
+          <ScalarProperty Name="vchMeasurePeriodStop" ColumnName="vchMeasurePeriodStop" />
+          <ScalarProperty Name="Bundle" ColumnName="Bundle" />
+          <ScalarProperty Name="vchType" ColumnName="vchType" />
+          <ScalarProperty Name="vchMeasureList" ColumnName="vchMeasureList" />
+          <ScalarProperty Name="PracticeName" ColumnName="PracticeName" />
+          <ScalarProperty Name="vchProviderNPI" ColumnName="vchProviderNPI" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PatientCount" ColumnName="PatientCount" />
+          <ScalarProperty Name="ProviderName" ColumnName="ProviderName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Measure_SubDetails" FunctionName="CQMsolutionModel.Store.Sp_Measure_SubDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CQMsolutionModel.Sp_Measure_SubDetails_Result">
+          <ScalarProperty Name="CQMQueueItemId" ColumnName="CQMQueueItemId" />
+          <ScalarProperty Name="MeasureCMSNumber" ColumnName="MeasureCMSNumber" />
+          <ScalarProperty Name="MeasureSubItemName" ColumnName="MeasureSubItemName" />
+          <ScalarProperty Name="MeasureSubItemCount" ColumnName="MeasureSubItemCount" />
+          <ScalarProperty Name="Male" ColumnName="Male" />
+          <ScalarProperty Name="Female" ColumnName="Female" />
+          <ScalarProperty Name="NotHispanicorLatino" ColumnName="NotHispanicorLatino" />
+          <ScalarProperty Name="HispanicorLatino" ColumnName="HispanicorLatino" />
+          <ScalarProperty Name="PayerOther" ColumnName="PayerOther" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Bundle" ColumnName="Bundle" />
+          <ScalarProperty Name="DynamicMeasureIdentifier" ColumnName="DynamicMeasureIdentifier" />
+          <ScalarProperty Name="CmsMeasureIdentifier" ColumnName="CmsMeasureIdentifier" />
+          <ScalarProperty Name="MeasureVersion" ColumnName="MeasureVersion" />
+          <ScalarProperty Name="MeasureVersionDetail" ColumnName="MeasureVersionDetail" />
+          <ScalarProperty Name="MeasureType" ColumnName="MeasureType" />
+          <ScalarProperty Name="MeasureGuid" ColumnName="MeasureGuid" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="MipsMeasureIdentifier" ColumnName="MipsMeasureIdentifier" />
+          <ScalarProperty Name="NqfMeasureIdentifier" ColumnName="NqfMeasureIdentifier" />
+          <ScalarProperty Name="QualityDomain" ColumnName="QualityDomain" />
+          <ScalarProperty Name="MeaningfulMeasureArea" ColumnName="MeaningfulMeasureArea" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="MeasureTitle" ColumnName="MeasureTitle" />
+          <ScalarProperty Name="CategoryTag" ColumnName="CategoryTag" />
+          <ScalarProperty Name="HasIpp" ColumnName="HasIpp" />
+          <ScalarProperty Name="HasDenominator" ColumnName="HasDenominator" />
+          <ScalarProperty Name="HasDenExcl" ColumnName="HasDenExcl" />
+          <ScalarProperty Name="HasNumerator" ColumnName="HasNumerator" />
+          <ScalarProperty Name="HasDenExcp" ColumnName="HasDenExcp" />
+          <ScalarProperty Name="HasMsrPop" ColumnName="HasMsrPop" />
+          <ScalarProperty Name="HasMsrPopExcl" ColumnName="HasMsrPopExcl" />
+          <ScalarProperty Name="HasMsrObsv" ColumnName="HasMsrObsv" />
+          <ScalarProperty Name="HasDcmPnm" ColumnName="HasDcmPnm" />
+          <ScalarProperty Name="IsHQR" ColumnName="IsHQR" />
+          <ScalarProperty Name="IsJCO" ColumnName="IsJCO" />
+          <ScalarProperty Name="IsMIPS" ColumnName="IsMIPS" />
+          <ScalarProperty Name="IsMedicaid" ColumnName="IsMedicaid" />
+          <ScalarProperty Name="IsPI" ColumnName="IsPI" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetDashBoard_Report" FunctionName="CQMsolutionModel.Store.SpGetDashBoard_Report">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CQMsolutionModel.SpGetDashBoard_Report_Result">
+          <ScalarProperty Name="MeasureCMSNumber" ColumnName="MeasureCMSNumber" />
+          <ScalarProperty Name="MipsMeasureIdentifier" ColumnName="MipsMeasureIdentifier" />
+          <ScalarProperty Name="MeasureDescription" ColumnName="MeasureDescription" />
+          <ScalarProperty Name="NumeratorDescription" ColumnName="NumeratorDescription" />
+          <ScalarProperty Name="StratificationText" ColumnName="StratificationText" />
+          <ScalarProperty Name="PerformanceRate" ColumnName="PerformanceRate" />
+          <ScalarProperty Name="IPP" ColumnName="IPP" />
+          <ScalarProperty Name="Denominator" ColumnName="Denominator" />
+          <ScalarProperty Name="DenominatorExclusion" ColumnName="DenominatorExclusion" />
+          <ScalarProperty Name="Numerator" ColumnName="Numerator" />
+          <ScalarProperty Name="DenominatorException" ColumnName="DenominatorException" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetOverallReports_ByRanUserID" FunctionName="CQMsolutionModel.Store.SpGetOverallReports_ByRanUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CQMsolutionModel.SpGetOverallReports_ByRanUserID_Result">
+          <ScalarProperty Name="lngID" ColumnName="lngID" />
+          <ScalarProperty Name="RanByUserID" ColumnName="RanByUserID" />
+          <ScalarProperty Name="PracticeID" ColumnName="PracticeID" />
+          <ScalarProperty Name="Bundle" ColumnName="Bundle" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="vchMeasureList" ColumnName="vchMeasureList" />
+          <ScalarProperty Name="vchMeasurePeriodStart" ColumnName="vchMeasurePeriodStart" />
+          <ScalarProperty Name="vchMeasurePeriodStop" ColumnName="vchMeasurePeriodStop" />
+          <ScalarProperty Name="dtmDateCreated" ColumnName="dtmDateCreated" />
+          <ScalarProperty Name="vchStatus" ColumnName="vchStatus" />
+          <ScalarProperty Name="vchType" ColumnName="vchType" />
+          <ScalarProperty Name="PracticeName" ColumnName="PracticeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

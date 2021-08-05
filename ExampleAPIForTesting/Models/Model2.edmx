@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CQMsolutionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CQMsolution.dbo.User_Login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="User_Login">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+        </EntityType>
+        <Function Name="Sp_Get_Main_DetailReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ReportID" Type="varchar" Mode="In" />
+          <Parameter Name="PracticeLocation" Type="varchar" Mode="In" />
+          <Parameter Name="Bundle" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Sp_Get_Practice_BasicReport_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PracticeID" Type="int" Mode="In" />
+          <Parameter Name="ReportID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Measure_SubDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ReportID" Type="varchar" Mode="In" />
+          <Parameter Name="PracticeLocation" Type="varchar" Mode="In" />
+          <Parameter Name="Bundle" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SpGetDashBoard_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ReportID" Type="int" Mode="In" />
+          <Parameter Name="Bundle" Type="nvarchar" Mode="In" />
+          <Parameter Name="BundleType" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SpGetOverallReports_ByRanUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="CQMsolutionModelStoreContainer">
+          <EntitySet Name="User_Login" EntityType="Self.User_Login" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [User_Login].[ID] AS [ID], 
+    [User_Login].[UserName] AS [UserName], 
+    [User_Login].[Password] AS [Password]
+    FROM [dbo].[User_Login] AS [User_Login]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CQMsolutionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="User_Login">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="CQMsolutionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="User_Login" EntityType="Self.User_Login" />
+          <FunctionImport Name="Sp_Get_Main_DetailReport" ReturnType="Collection(CQMsolutionModel.Sp_Get_Main_DetailReport_Result)">
+            <Parameter Name="ReportID" Mode="In" Type="String" />
+            <Parameter Name="PracticeLocation" Mode="In" Type="String" />
+            <Parameter Name="Bundle" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Get_Practice_BasicReport_Info" ReturnType="Collection(CQMsolutionModel.Sp_Get_Practice_BasicReport_Info_Result)">
+            <Parameter Name="PracticeID" Mode="In" Type="Int32" />
+            <Parameter Name="ReportID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Measure_SubDetails" ReturnType="Collection(CQMsolutionModel.Sp_Measure_SubDetails_Result)">
+            <Parameter Name="ReportID" Mode="In" Type="String" />
+            <Parameter Name="PracticeLocation" Mode="In" Type="String" />
+            <Parameter Name="Bundle" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SpGetDashBoard_Report" ReturnType="Collection(CQMsolutionModel.SpGetDashBoard_Report_Result)">
+            <Parameter Name="ReportID" Mode="In" Type="Int32" />
+            <Parameter Name="Bundle" Mode="In" Type="String" />
+            <Parameter Name="BundleType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SpGetOverallReports_ByRanUserID" ReturnType="Collection(CQMsolutionModel.SpGetOverallReports_ByRanUserID_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Sp_Get_Main_DetailReport_Result">
+          <Property Type="Int64" Name="lngID" Nullable="false" />
+          <Property Type="DateTime" Name="dtmDateSuccess" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="vchMeasurePeriodStart" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="vchMeasurePeriodStop" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="MeasureVersion" Nullable="true" />
+          <Property Type="String" Name="MeasureGuid" Nullable="true" />
+          <Property Type="String" Name="NqfMeasureIdentifier" Nullable="true" />
+          <Property Type="String" Name="MeasureTitle" Nullable="true" />
+          <Property Type="Int32" Name="IPPMale" Nullable="true" />
+          <Property Type="Int32" Name="IPPFemale" Nullable="true" />
+          <Property Type="Int32" Name="IPPNOTHispanic" Nullable="true" />
+          <Property Type="Int32" Name="IPPhispanic" Nullable="true" />
+          <Property Type="Int32" Name="IPPPayOther" Nullable="true" />
+          <Property Type="Int32" Name="DENMale" Nullable="true" />
+          <Property Type="Int32" Name="DENFeMale" Nullable="true" />
+          <Property Type="Int32" Name="DENNOTHispanic" Nullable="true" />
+          <Property Type="Int32" Name="DENHispanic" Nullable="true" />
+          <Property Type="Int32" Name="DENPayOther" Nullable="true" />
+          <Property Type="Int32" Name="DENexcepMale" Nullable="true" />
+          <Property Type="Int32" Name="DENexcepFeMale" Nullable="true" />
+          <Property Type="Int32" Name="DENexcepNOTHispanic" Nullable="true" />
+          <Property Type="Int32" Name="DENexcepHispanic" Nullable="true" />
+          <Property Type="Int32" Name="DENexcepPayOther" Nullable="true" />
+          <Property Type="Int32" Name="DenexcluMale" Nullable="true" />
+          <Property Type="Int32" Name="DenexcluFeMale" Nullable="true" />
+          <Property Type="Int32" Name="DenexcluNOTHispanic" Nullable="true" />
+          <Property Type="Int32" Name="DenexcluHispanic" Nullable="true" />
+          <Property Type="Int32" Name="DenexcluPayOther" Nullable="true" />
+          <Property Type="Int32" Name="NumMale" Nullable="true" />
+          <Property Type="Int32" Name="NumFeMale" Nullable="true" />
+          <Property Type="Int32" Name="NumNOTHispanic" Nullable="true" />
+          <Property Type="Int32" Name="NumHispanic" Nullable="true" />
+          <Property Type="Int32" Name="NumPayOther" Nullable="true" />
+          <Property Type="Int32" Name="MeasureCMSNumber" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Sp_Get_Practice_BasicReport_Info_Result">
+          <Property Type="Int64" Name="lngID" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="dtmDateCreated" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="vchMeasurePeriodStart" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="vchMeasurePeriodStop" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Bundle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vchType" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="vchMeasureList" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="PracticeName" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="vchProviderNPI" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="PatientCount" Nullable="true" />
+          <Property Type="String" Name="ProviderName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="Sp_Measure_SubDetails_Result">
+          <Property Type="Int32" Name="CQMQueueItemId" Nullable="true" />
+          <Property Type="Int32" Name="MeasureCMSNumber" Nullable="true" />
+          <Property Type="String" Name="MeasureSubItemName" Nullable="true" />
+          <Property Type="Int32" Name="MeasureSubItemCount" Nullable="true" />
+          <Property Type="Int32" Name="Male" Nullable="true" />
+          <Property Type="Int32" Name="Female" Nullable="true" />
+          <Property Type="Int32" Name="NotHispanicorLatino" Nullable="true" />
+          <Property Type="Int32" Name="HispanicorLatino" Nullable="true" />
+          <Property Type="Int32" Name="PayerOther" Nullable="true" />
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Bundle" Nullable="true" />
+          <Property Type="Int32" Name="DynamicMeasureIdentifier" Nullable="false" />
+          <Property Type="Int32" Name="CmsMeasureIdentifier" Nullable="true" />
+          <Property Type="Int32" Name="MeasureVersion" Nullable="true" />
+          <Property Type="String" Name="MeasureVersionDetail" Nullable="true" />
+          <Property Type="String" Name="MeasureType" Nullable="true" />
+          <Property Type="String" Name="MeasureGuid" Nullable="true" />
+          <Property Type="String" Name="ShortName" Nullable="true" />
+          <Property Type="String" Name="MipsMeasureIdentifier" Nullable="true" />
+          <Property Type="String" Name="NqfMeasureIdentifier" Nullable="true" />
+          <Property Type="String" Name="QualityDomain" Nullable="true" />
+          <Property Type="String" Name="MeaningfulMeasureArea" Nullable="true" />
+          <Property Type="String" Name="Note" Nullable="true" />
+          <Property Type="String" Name="MeasureTitle" Nullable="true" />
+          <Property Type="String" Name="CategoryTag" Nullable="true" />
+          <Property Type="Boolean" Name="HasIpp" Nullable="false" />
+          <Property Type="Boolean" Name="HasDenominator" Nullable="false" />
+          <Property Type="Boolean" Name="HasDenExcl" Nullable="false" />
+          <Property Type="Boolean" Name="HasNumerator" Nullable="false" />
+          <Property Type="Boolean" Name="HasDenExcp" Nullable="false" />
+          <Property Type="Boolean" Name="HasMsrPop" Nullable="false" />
+          <Property Type="Boolean" Name="HasMsrPopExcl" Nullable="false" />
+          <Property Type="Boolean" Name="HasMsrObsv" Nullable="false" />
+          <Property Type="Boolean" Name="HasDcmPnm" Nullable="false" />
+          <Property Type="Boolean" Name="IsHQR" Nullable="false" />
+          <Property Type="Boolean" Name="IsJCO" Nullable="false" />
+          <Property Type="Boolean" Name="IsMIPS" Nullable="false" />
+          <Property Type="Boolean" Name="IsMedicaid" Nullable="false" />
+          <Property Type="Boolean" Name="IsPI" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SpGetDashBoard_Report_Result">
+          <Property Type="Int32" Name="MeasureCMSNumber" Nullable="true" />
+          <Property Type="String" Name="MipsMeasureIdentifier" Nullable="true" />
+          <Property Type="String" Name="MeasureDescription" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="NumeratorDescription" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="StratificationText" Nullable="true" MaxLength="1024" />
+          <Property Type="Double" Name="PerformanceRate" Nullable="true" />
+          <Property Type="Int32" Name="IPP" Nullable="true" />
+          <Property Type="Int32" Name="Denominator" Nullable="true" />
+          <Property Type="Int32" Name="DenominatorExclusion" Nullable="true" />
+          <Property Type="Int32" Name="Numerator" Nullable="true" />
+          <Property Type="Int32" Name="DenominatorException" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SpGetOverallReports_ByRanUserID_Result">
+          <Property Type="Int64" Name="lngID" Nullable="false" />
+          <Property Type="Int64" Name="RanByUserID" Nullable="true" />
+          <Property Type="Int64" Name="PracticeID" Nullable="true" />
+          <Property Type="String" Name="Bundle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="String" Name="vchMeasureList" Nullable="true" MaxLength="8000" />
+          <Property Type="DateTime" Name="vchMeasurePeriodStart" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="vchMeasurePeriodStop" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="dtmDateCreated" Nullable="true" Precision="23" />
+          <Property Type="String" Name="vchStatus" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vchType" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="PracticeName" Nullable="false" MaxLength="200" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CQMsolutionModelStoreContainer" CdmEntityContainer="CQMsolutionEntities">
+          <EntitySetMapping Name="User_Login">
+            <EntityTypeMapping TypeName="CQMsolutionModel.User_Login">
+              <MappingFragment StoreEntitySet="User_Login">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Sp_Get_Main_DetailReport" FunctionName="CQMsolutionModel.Store.Sp_Get_Main_DetailReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CQMsolutionModel.Sp_Get_Main_DetailReport_Result">
+                <ScalarProperty Name="lngID" ColumnName="lngID" />
+                <ScalarProperty Name="dtmDateSuccess" ColumnName="dtmDateSuccess" />
+                <ScalarProperty Name="vchMeasurePeriodStart" ColumnName="vchMeasurePeriodStart" />
+                <ScalarProperty Name="vchMeasurePeriodStop" ColumnName="vchMeasurePeriodStop" />
+                <ScalarProperty Name="MeasureVersion" ColumnName="MeasureVersion" />
+                <ScalarProperty Name="MeasureGuid" ColumnName="MeasureGuid" />
+                <ScalarProperty Name="NqfMeasureIdentifier" ColumnName="NqfMeasureIdentifier" />
+                <ScalarProperty Name="MeasureTitle" ColumnName="MeasureTitle" />
+                <ScalarProperty Name="IPPMale" ColumnName="IPPMale" />
+                <ScalarProperty Name="IPPFemale" ColumnName="IPPFemale" />
+                <ScalarProperty Name="IPPNOTHispanic" ColumnName="IPPNOTHispanic" />
+                <ScalarProperty Name="IPPhispanic" ColumnName="IPPhispanic" />
+                <ScalarProperty Name="IPPPayOther" ColumnName="IPPPayOther" />
+                <ScalarProperty Name="DENMale" ColumnName="DENMale" />
+                <ScalarProperty Name="DENFeMale" ColumnName="DENFeMale" />
+                <ScalarProperty Name="DENNOTHispanic" ColumnName="DENNOTHispanic" />
+                <ScalarProperty Name="DENHispanic" ColumnName="DENHispanic" />
+                <ScalarProperty Name="DENPayOther" ColumnName="DENPayOther" />
+                <ScalarProperty Name="DENexcepMale" ColumnName="DENexcepMale" />
+                <ScalarProperty Name="DENexcepFeMale" ColumnName="DENexcepFeMale" />
+                <ScalarProperty Name="DENexcepNOTHispanic" ColumnName="DENexcepNOTHispanic" />
+                <ScalarProperty Name="DENexcepHispanic" ColumnName="DENexcepHispanic" />
+                <ScalarProperty Name="DENexcepPayOther" ColumnName="DENexcepPayOther" />
+                <ScalarProperty Name="DenexcluMale" ColumnName="DenexcluMale" />
+                <ScalarProperty Name="DenexcluFeMale" ColumnName="DenexcluFeMale" />
+                <ScalarProperty Name="DenexcluNOTHispanic" ColumnName="DenexcluNOTHispanic" />
+                <ScalarProperty Name="DenexcluHispanic" ColumnName="DenexcluHispanic" />
+                <ScalarProperty Name="DenexcluPayOther" ColumnName="DenexcluPayOther" />
+                <ScalarProperty Name="NumMale" ColumnName="NumMale" />
+                <ScalarProperty Name="NumFeMale" ColumnName="NumFeMale" />
+                <ScalarProperty Name="NumNOTHispanic" ColumnName="NumNOTHispanic" />
+                <ScalarProperty Name="NumHispanic" ColumnName="NumHispanic" />
+                <ScalarProperty Name="NumPayOther" ColumnName="NumPayOther" />
+                <ScalarProperty Name="MeasureCMSNumber" ColumnName="MeasureCMSNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_Get_Practice_BasicReport_Info" FunctionName="CQMsolutionModel.Store.Sp_Get_Practice_BasicReport_Info">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CQMsolutionModel.Sp_Get_Practice_BasicReport_Info_Result">
+                <ScalarProperty Name="lngID" ColumnName="lngID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="dtmDateCreated" ColumnName="dtmDateCreated" />
+                <ScalarProperty Name="vchMeasurePeriodStart" ColumnName="vchMeasurePeriodStart" />
+                <ScalarProperty Name="vchMeasurePeriodStop" ColumnName="vchMeasurePeriodStop" />
+                <ScalarProperty Name="Bundle" ColumnName="Bundle" />
+                <ScalarProperty Name="vchType" ColumnName="vchType" />
+                <ScalarProperty Name="vchMeasureList" ColumnName="vchMeasureList" />
+                <ScalarProperty Name="PracticeName" ColumnName="PracticeName" />
+                <ScalarProperty Name="vchProviderNPI" ColumnName="vchProviderNPI" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PatientCount" ColumnName="PatientCount" />
+                <ScalarProperty Name="ProviderName" ColumnName="ProviderName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_Measure_SubDetails" FunctionName="CQMsolutionModel.Store.Sp_Measure_SubDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CQMsolutionModel.Sp_Measure_SubDetails_Result">
+                <ScalarProperty Name="CQMQueueItemId" ColumnName="CQMQueueItemId" />
+                <ScalarProperty Name="MeasureCMSNumber" ColumnName="MeasureCMSNumber" />
+                <ScalarProperty Name="MeasureSubItemName" ColumnName="MeasureSubItemName" />
+                <ScalarProperty Name="MeasureSubItemCount" ColumnName="MeasureSubItemCount" />
+                <ScalarProperty Name="Male" ColumnName="Male" />
+                <ScalarProperty Name="Female" ColumnName="Female" />
+                <ScalarProperty Name="NotHispanicorLatino" ColumnName="NotHispanicorLatino" />
+                <ScalarProperty Name="HispanicorLatino" ColumnName="HispanicorLatino" />
+                <ScalarProperty Name="PayerOther" ColumnName="PayerOther" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Bundle" ColumnName="Bundle" />
+                <ScalarProperty Name="DynamicMeasureIdentifier" ColumnName="DynamicMeasureIdentifier" />
+                <ScalarProperty Name="CmsMeasureIdentifier" ColumnName="CmsMeasureIdentifier" />
+                <ScalarProperty Name="MeasureVersion" ColumnName="MeasureVersion" />
+                <ScalarProperty Name="MeasureVersionDetail" ColumnName="MeasureVersionDetail" />
+                <ScalarProperty Name="MeasureType" ColumnName="MeasureType" />
+                <ScalarProperty Name="MeasureGuid" ColumnName="MeasureGuid" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="MipsMeasureIdentifier" ColumnName="MipsMeasureIdentifier" />
+                <ScalarProperty Name="NqfMeasureIdentifier" ColumnName="NqfMeasureIdentifier" />
+                <ScalarProperty Name="QualityDomain" ColumnName="QualityDomain" />
+                <ScalarProperty Name="MeaningfulMeasureArea" ColumnName="MeaningfulMeasureArea" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="MeasureTitle" ColumnName="MeasureTitle" />
+                <ScalarProperty Name="CategoryTag" ColumnName="CategoryTag" />
+                <ScalarProperty Name="HasIpp" ColumnName="HasIpp" />
+                <ScalarProperty Name="HasDenominator" ColumnName="HasDenominator" />
+                <ScalarProperty Name="HasDenExcl" ColumnName="HasDenExcl" />
+                <ScalarProperty Name="HasNumerator" ColumnName="HasNumerator" />
+                <ScalarProperty Name="HasDenExcp" ColumnName="HasDenExcp" />
+                <ScalarProperty Name="HasMsrPop" ColumnName="HasMsrPop" />
+                <ScalarProperty Name="HasMsrPopExcl" ColumnName="HasMsrPopExcl" />
+                <ScalarProperty Name="HasMsrObsv" ColumnName="HasMsrObsv" />
+                <ScalarProperty Name="HasDcmPnm" ColumnName="HasDcmPnm" />
+                <ScalarProperty Name="IsHQR" ColumnName="IsHQR" />
+                <ScalarProperty Name="IsJCO" ColumnName="IsJCO" />
+                <ScalarProperty Name="IsMIPS" ColumnName="IsMIPS" />
+                <ScalarProperty Name="IsMedicaid" ColumnName="IsMedicaid" />
+                <ScalarProperty Name="IsPI" ColumnName="IsPI" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SpGetDashBoard_Report" FunctionName="CQMsolutionModel.Store.SpGetDashBoard_Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CQMsolutionModel.SpGetDashBoard_Report_Result">
+                <ScalarProperty Name="MeasureCMSNumber" ColumnName="MeasureCMSNumber" />
+                <ScalarProperty Name="MipsMeasureIdentifier" ColumnName="MipsMeasureIdentifier" />
+                <ScalarProperty Name="MeasureDescription" ColumnName="MeasureDescription" />
+                <ScalarProperty Name="NumeratorDescription" ColumnName="NumeratorDescription" />
+                <ScalarProperty Name="StratificationText" ColumnName="StratificationText" />
+                <ScalarProperty Name="PerformanceRate" ColumnName="PerformanceRate" />
+                <ScalarProperty Name="IPP" ColumnName="IPP" />
+                <ScalarProperty Name="Denominator" ColumnName="Denominator" />
+                <ScalarProperty Name="DenominatorExclusion" ColumnName="DenominatorExclusion" />
+                <ScalarProperty Name="Numerator" ColumnName="Numerator" />
+                <ScalarProperty Name="DenominatorException" ColumnName="DenominatorException" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SpGetOverallReports_ByRanUserID" FunctionName="CQMsolutionModel.Store.SpGetOverallReports_ByRanUserID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CQMsolutionModel.SpGetOverallReports_ByRanUserID_Result">
+                <ScalarProperty Name="lngID" ColumnName="lngID" />
+                <ScalarProperty Name="RanByUserID" ColumnName="RanByUserID" />
+                <ScalarProperty Name="PracticeID" ColumnName="PracticeID" />
+                <ScalarProperty Name="Bundle" ColumnName="Bundle" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="vchMeasureList" ColumnName="vchMeasureList" />
+                <ScalarProperty Name="vchMeasurePeriodStart" ColumnName="vchMeasurePeriodStart" />
+                <ScalarProperty Name="vchMeasurePeriodStop" ColumnName="vchMeasurePeriodStop" />
+                <ScalarProperty Name="dtmDateCreated" ColumnName="dtmDateCreated" />
+                <ScalarProperty Name="vchStatus" ColumnName="vchStatus" />
+                <ScalarProperty Name="vchType" ColumnName="vchType" />
+                <ScalarProperty Name="PracticeName" ColumnName="PracticeName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

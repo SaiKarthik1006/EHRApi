@@ -1,0 +1,9 @@
+D:\ExampleAPIForTesting\DAAL\bin\Debug\netstandard2.1\DAAL.deps.json
+D:\ExampleAPIForTesting\DAAL\bin\Debug\netstandard2.1\DAAL.dll
+D:\ExampleAPIForTesting\DAAL\bin\Debug\netstandard2.1\DAAL.pdb
+D:\ExampleAPIForTesting\DAAL\obj\Debug\netstandard2.1\DAAL.csprojAssemblyReference.cache
+D:\ExampleAPIForTesting\DAAL\obj\Debug\netstandard2.1\DAAL.AssemblyInfoInputs.cache
+D:\ExampleAPIForTesting\DAAL\obj\Debug\netstandard2.1\DAAL.AssemblyInfo.cs
+D:\ExampleAPIForTesting\DAAL\obj\Debug\netstandard2.1\DAAL.csproj.CoreCompileInputs.cache
+D:\ExampleAPIForTesting\DAAL\obj\Debug\netstandard2.1\DAAL.dll
+D:\ExampleAPIForTesting\DAAL\obj\Debug\netstandard2.1\DAAL.pdb

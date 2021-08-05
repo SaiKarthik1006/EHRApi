@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CqmEhrReporting_productionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CqmEhrReporting_productionEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="Sp_GetProviders" ReturnType="Collection(CqmEhrReporting_productionModel.Sp_GetProviders_Result)" />
+    <FunctionImport Name="SP_Report_Creation">
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+      <Parameter Name="BundleYear" Mode="In" Type="String" />
+      <Parameter Name="PracticeLocation" Mode="In" Type="String" />
+      <Parameter Name="ProviderID" Mode="In" Type="String" />
+      <Parameter Name="MeasureList" Mode="In" Type="String" />
+      <Parameter Name="RanByUserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Sp_GetProviders_Result">
+    <Property Type="String" Name="C_id" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="first_name" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="last_name" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="PracticeName" Nullable="false" MaxLength="200" />
+  </ComplexType>
+</Schema>

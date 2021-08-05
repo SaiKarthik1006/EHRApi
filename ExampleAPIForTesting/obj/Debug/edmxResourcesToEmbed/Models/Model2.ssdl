@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CQMsolutionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CQMsolution.dbo.User_Login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="User_Login">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+  </EntityType>
+  <Function Name="Sp_Get_Main_DetailReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ReportID" Type="varchar" Mode="In" />
+    <Parameter Name="PracticeLocation" Type="varchar" Mode="In" />
+    <Parameter Name="Bundle" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_Get_Practice_BasicReport_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PracticeID" Type="int" Mode="In" />
+    <Parameter Name="ReportID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_Measure_SubDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ReportID" Type="varchar" Mode="In" />
+    <Parameter Name="PracticeLocation" Type="varchar" Mode="In" />
+    <Parameter Name="Bundle" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetDashBoard_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ReportID" Type="int" Mode="In" />
+    <Parameter Name="Bundle" Type="nvarchar" Mode="In" />
+    <Parameter Name="BundleType" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetOverallReports_ByRanUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="CQMsolutionModelStoreContainer">
+    <EntitySet Name="User_Login" EntityType="Self.User_Login" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [User_Login].[ID] AS [ID], 
+    [User_Login].[UserName] AS [UserName], 
+    [User_Login].[Password] AS [Password]
+    FROM [dbo].[User_Login] AS [User_Login]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
